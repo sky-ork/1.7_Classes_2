@@ -9,12 +9,17 @@ class Track:
                    f'{self.duration}min')
 
     def __lt__(self, other):
-        if not isinstance(self, Track) and not isinstance(other, Track):
+        if not isinstance(other, Track):
             return "Not a Track!"
         return self.duration < other.duration
 
+    def __gt__(self, other):
+        if not isinstance(other, Track):
+            return "Not a Track!"
+        return self.duration > other.duration
+
     def __eq__(self, other):
-        if not isinstance(self, Track) and not isinstance(other, Track):
+        if not isinstance(other, Track):
             return "Not a Track!"
         return self.duration == other.duration
 
@@ -78,7 +83,7 @@ def main():
     print()
     print(album_kino)
     print(album_ariya)
-    print(kino_2 == ariya_3)
+    print(kino_2 < ariya_3)
 
 
 if __name__ == '__main__':
